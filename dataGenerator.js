@@ -24,7 +24,7 @@ function descriptionParagraphGenerator(hipsterLorum) {
     }
     hipParagraph += sentence;
   }
-  console.log(hipParagraph);
+
   return hipParagraph;
 }
 function standardDescriptionGenerator() {

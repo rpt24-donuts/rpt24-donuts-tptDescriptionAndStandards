@@ -15,22 +15,22 @@ con.connect((err) => {
   console.log('Connected!');
 });
 
-for (var j = 0; j < standards.length - 1; j++) {
+for (let j = 0; j < standards.length - 1; j++) {
   con.query(`insert into Standards (Standards, Description ) values ('${standards[j]}', '${dataMaker.standardDescriptionGenerator()}');`, (err, result) => {
     if (err) throw err;
   });
 }
-for (var i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i++) {
   con.query(`insert into Product (Descriptions, Pages, answer_key, teaching_dur) values ('${dataMaker.descriptionGenerator()}', ${dataMaker.pagesGenerator()}, '${dataMaker.answerKeyGenerator()}', '${dataMaker.teachingDurationGenerator()}');`, (err, result) => {
     if (err) throw err;
   });
 }
 
-for (var i = 0; i < 101; i++) {
+for (let i = 0; i < 101; i++) {
   const rand = Math.floor(Math.random() * 4);
   const randomStandard = Math.floor(Math.random() * standards.length);
 
-  for (var j = 0; j < rand; j++) {
+  for (let j = 0; j < rand; j++) {
     console.log(i, j);
 
     con.query(`insert into SandD (Product_id, Standards_id) values (${i}, ${randomStandard + j});`, (err, result) => {
