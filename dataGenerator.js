@@ -6,7 +6,7 @@ function descriptionParagraphGenerator(hipsterLorum) {
 
   let hipParagraph = '  ';
 
-  for (let i = 0; i < paragraphSize; i++) {
+  for (let i = 0; i < paragraphSize; i += 1) {
     let sentence = '';
     let j = 0;
 
@@ -20,7 +20,7 @@ function descriptionParagraphGenerator(hipsterLorum) {
       } else {
         sentence += `${lowHipString[randomInt]} `;
       }
-      j++;
+      j += 1;
     }
     hipParagraph += sentence;
   }
@@ -33,7 +33,7 @@ function standardDescriptionGenerator() {
 function descriptionGenerator() {
   const reviewLength = Math.floor((Math.random() * 4)) + 1;
   let reviewString = '';
-  for (let i = 0; i < reviewLength; i++) {
+  for (let i = 0; i < reviewLength; i += 1) {
     reviewString += `${descriptionParagraphGenerator(hipString)}\n` + '\n';
   }
   return reviewString;
@@ -44,9 +44,9 @@ function standardGenerator() {
   const grade = ['K', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const section = ['.1', '.2', '.3', '.4', '.5', '.6', '.7', '.8', '.9', '.10'];
   const standards = [];
-  for (let i = 0; i < standardType.length - 1; i++) {
-    for (let j = 0; j < grade.length - 1; j++) {
-      for (let z = 0; z < section.length - 1; z++) {
+  for (let i = 0; i < standardType.length - 1; i += 1) {
+    for (let j = 0; j < grade.length - 1; j += 1) {
+      for (let z = 0; z < section.length - 1; z += 1) {
         standards.push(`${standardType[i]}.${grade[j]}${section[z]}`);
       }
     }
