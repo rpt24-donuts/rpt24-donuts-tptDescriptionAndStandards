@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
 app.get('/:Id', (req, res) => {
   const productId = req.params.Id;
   console.log(productId);
+  res.send('done')
 });
 app.listen(3001, () => {
   console.log('Example app listening at http://localhost:3001');
