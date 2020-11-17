@@ -18,14 +18,16 @@ con.connect((err) => {
 for (let j = 0; j < standards.length - 1; j++) {
   con.query(`insert into Standards (Standards, Description ) values ('${standards[j]}', '${dataMaker.standardDescriptionGenerator()}');`, (err, result) => {
     if (err) throw err;
+    console.log(result);
   });
-  console.log(result)
+
 }
 for (let i = 0; i < 100; i++) {
   con.query(`insert into Product (Descriptions, Pages, answer_key, teaching_dur) values ('${dataMaker.descriptionGenerator()}', ${dataMaker.pagesGenerator()}, '${dataMaker.answerKeyGenerator()}', '${dataMaker.teachingDurationGenerator()}');`, (err, result) => {
     if (err) throw err;
+    console.log(result);
   });
-  console.log(result)
+
 }
 
 for (let i = 0; i < 101; i++) {
@@ -37,7 +39,7 @@ for (let i = 0; i < 101; i++) {
 
     con.query(`insert into SandD (Product_id, Standards_id) values (${i}, ${randomStandard + j});`, (err, result) => {
       if (err) throw err;
-      console.log(result)
+      console.log(result);
     });
   }
 }
