@@ -1,16 +1,16 @@
-var express = require('express')
-var app = express()
-app.use(express.static(__dirname+'/client/dist'))
-app.get('/', function (req, res) {
-  res.render('index')
-  res.send('done')
-})
+const express = require('express');
 
+const app = express();
+app.use(express.static(`${__dirname}/client/dist`));
+app.get('/', (req, res) => {
+  res.render('index');
+  res.send('done');
+});
 
-app.get('/:Id', function(req, res) {
-  let productId = req.params.Id;
-  console.log(productId)
-})
+app.get('/:Id', (req, res) => {
+  const productId = req.params.Id;
+  console.log(productId);
+});
 app.listen(3001, () => {
-  console.log(`Example app listening at http://localhost:3001`)
-})
+  console.log('Example app listening at http://localhost:3001');
+});
