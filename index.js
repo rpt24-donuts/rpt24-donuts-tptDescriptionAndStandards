@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 const mysql = require('mysql');
-
+// app.set('view engine', 'html');
 app.use(express.static(`${__dirname}/client/dist`));
 const con = mysql.createConnection({
   host: 'localhost',
@@ -10,12 +10,13 @@ const con = mysql.createConnection({
   password: 'Password!23',
   database: 'SandD',
 });
-app.get('/', (req, res) => {
-  res.render('index');
-  res.send('done');
+app.get('/:Id', (req, res) => {
+  res.sendFile(`${__dirname}/client/dist/index.html`);
+  // res.send('done');
 });
 
 app.get('/:Id/DS', (req, res) => {
+  console.log('starting')
   const productId = req.params.Id.split(':')[0];
   const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
@@ -53,5 +54,6 @@ app.get('/:Id/DS', (req, res) => {
   // {productDescriptions:string, pageLength: int, answerKeyIncluded: string, teachingDuration: string, standards: string}
 });
 app.listen(3001, () => {
-  console.log('Example app listening at http://localhost:3001');
+  console.log('listening at http://localhost:3001');
 });
+module.exports = app
