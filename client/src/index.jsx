@@ -33,8 +33,9 @@ class NameForm extends React.Component {
 
 
   render() {
-    if (this.state.productInfo.standards !== undefined) {
+    if (this.state.productInfo.standards !== undefined && this.state.productInfo.standards[0] !== 'N/A') {
     var standards = this.state.productInfo.standards.map((standard,i)=>{
+
       return(
         <div >
         <div className = 'standardsContainer'>
@@ -47,12 +48,15 @@ class NameForm extends React.Component {
        </div>
       )
     })
+  }else {
+    var standards =<div className = 'standardsDescription'>N/A</div>
+
   }
     return (
       <div className = 'productService'>
          <div className = 'additionalInfo'></div>
 <h3 className = 'DescriptionTitle'>Description</h3>
-<p>{this.state.productInfo.productDescriptions}</p>
+<div className='standardsDescription'>{this.state.productInfo.productDescriptions}</div>
       <div className = 'additionalInfo'>
         <div className = 'items1'>
         <div className = 'additionalInfoDesc'>Total Pages</div>
@@ -71,9 +75,9 @@ class NameForm extends React.Component {
       <h3 className ='DescriptionTitle' >Standards</h3>
       </div>
 
-    <div>{standards || 'N/A'}</div>
+    <div className = 'standardsDescription'>{standards}</div>
     </div>
-    </div>
+
 
     );
   }
