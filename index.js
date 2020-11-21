@@ -22,6 +22,8 @@ app.get('/:Id/DS', (req, res) => {
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
     if (productQueryErr) throw productQueryErr;
 
+
+
     productInfo.productDescriptions = productQueryResult[0].Descriptions;
     productInfo.pageLength = productQueryResult[0].Pages;
     productInfo.answerKeyIncluded = productQueryResult[0].answer_key;
@@ -50,10 +52,11 @@ app.get('/:Id/DS', (req, res) => {
         res.json(productInfo);
       }
     });
+
   });
   // {productDescriptions:string, pageLength: int, answerKeyIncluded: string, teachingDuration: string, standards: string}
 });
-app.listen(3001, () => {
-  console.log('listening at http://localhost:3001');
+app.listen(3002, () => {
+  console.log('listening at http://localhost:3002');
 });
 module.exports = app
