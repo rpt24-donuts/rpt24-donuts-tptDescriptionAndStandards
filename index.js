@@ -16,13 +16,11 @@ app.get('/:Id', (req, res) => {
 });
 
 app.get('/:Id/DS', (req, res) => {
-  console.log('starting')
+  console.log('starting');
   const productId = req.params.Id.split(':')[0];
   const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
     if (productQueryErr) throw productQueryErr;
-
-
 
     productInfo.productDescriptions = productQueryResult[0].Descriptions;
     productInfo.pageLength = productQueryResult[0].Pages;
@@ -52,11 +50,9 @@ app.get('/:Id/DS', (req, res) => {
         res.json(productInfo);
       }
     });
-
   });
-  // {productDescriptions:string, pageLength: int, answerKeyIncluded: string, teachingDuration: string, standards: string}
 });
 app.listen(3002, () => {
   console.log('listening at http://localhost:3002');
 });
-module.exports = app
+module.exports = app;

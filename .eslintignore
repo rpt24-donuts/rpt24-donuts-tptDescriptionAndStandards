@@ -1,0 +1,4 @@
+jest.config.js
+bundle.js
+componentMock.js
+serverMock.js
