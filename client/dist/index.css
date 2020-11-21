@@ -1,0 +1,127 @@
+.productService{
+
+  position: absolute;
+  left:16.7%;
+  right:33.3%;
+
+}
+
+
+.DescriptionTitle {
+font-family: arial;
+}
+.additionalInfo{
+
+  margin-bottom: 6px;
+  font-size: 16px;
+
+border-bottom:solid;
+border-color: lightgray;
+padding-top:50px;
+padding-bottom:50px;
+border-width:thin;
+
+}
+h1 {
+  color: #222;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: arial;
+  font-weight:normal;
+  /* font-weight:bold; */
+
+}
+
+.additionalInfoDesc {
+
+  font-family:arial;
+  font-weight: 500;
+  color: #222;
+  display:flex;
+  flex:1;
+  margin-bottom: 6px;
+  font-size: 16px;
+
+  white-space: nowrap;
+
+
+
+}
+.additionalInfoBox{
+  border-top:solid;
+  border-bottom:solid;
+border-color: lightgray;
+padding-top:50px;
+padding-bottom:50px;
+border-width:thin;
+}
+.additionalInfoItem {
+ position:absolute;
+left: 20%;
+ padding-left:10px;
+ color: #666;
+ font-size: 16px;
+ font-family: arial;
+ font-weight: 400;
+
+
+}
+.items1, .items2, .items3 {
+  display:flex;
+
+}
+.standards {
+  display:flex;
+
+  flex:1;
+  padding:2.5px;
+  font-family: arial;
+
+  border-color:rgb(243, 243, 243);
+  font-size: 12px;
+  text-align: center;
+
+
+
+}
+.CCSS{
+  display:flex;
+
+  flex:1;
+  font-family: arial;
+
+  background-color:rgb(243, 243, 243);
+
+
+  padding:2.5px;
+  font-size: 12px;
+  font-weight:550;
+  text-align: center;
+
+
+
+
+}
+.standardsContainer {
+  border:solid;
+  display:flex;
+  width:15%;
+
+  border-width:thin;
+  border-color:rgb(243, 243, 243);
+  border-radius:5px;
+
+}
+.standardsContainer:hover{
+  border-color:black;
+  border-radius:0px;
+
+}
+.standardsDescription {
+font-size: 16px;
+font-family: arial;
+margin-top:10px;
+margin-bottom:20px;
+
+
+}

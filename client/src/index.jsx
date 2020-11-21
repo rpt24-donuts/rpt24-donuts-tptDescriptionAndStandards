@@ -1,4 +1,5 @@
+import ProductInfo from '../Components/Description.jsx'
 ReactDOM.render(
-  <h1>Well hello there</h1>,
+  <ProductInfo/>,
   document.getElementById('root')
 );

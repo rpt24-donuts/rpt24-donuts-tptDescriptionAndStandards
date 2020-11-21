@@ -1,7 +1,5 @@
-const path = require('path');
-
 module.exports = {
-  entry: __dirname +'/client/src/index.jsx',
+  entry: `${__dirname}/client/src/index.jsx`,
   module: {
     rules: [
       {
@@ -10,18 +8,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env', '@babel/preset-react', { plugins: ['@babel/plugin-syntax-jsx', '@babel/plugin-proposal-class-properties'] }],
+          },
+        },
+      },
+    ],
   },
-
 
   output: {
     filename: 'bundle.js',
-    path: __dirname+'/client/dist'
+    path: `${__dirname}/client/dist`,
   },
 };
-
-
