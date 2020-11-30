@@ -21,14 +21,19 @@ app.get('/:Id/DS', (req, res) => {
   const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
     if (productQueryErr) throw productQueryErr;
-
-    productInfo.productDescriptions = productQueryResult[0].Descriptions;
-    productInfo.pageLength = productQueryResult[0].Pages;
-    productInfo.answerKeyIncluded = productQueryResult[0].answer_key;
-    productInfo.teachingDuration = productQueryResult[0].teaching_dur;
+    if (productQueryResult[0].answerKeyIncluded === 1) {
+      productInfo.answerKeyIncluded = 'Yes'
+     }else if(productQueryResult[0].answerKeyIncluded === 0) {
+      productInfo.answerKeyIncluded = 'No'
+    } else {
+      productInfo.answerKeyIncluded = 'N/A'
+    }
+    productInfo.productDescriptions = productQueryResult[0].productDescription;
+    productInfo.pageLength = productQueryResult[0].pageLength;
+    productInfo.teachingDuration = productQueryResult[0].teachingDuration;
     productInfo.standards = [];
     productInfo.standardsDescription = [];
-    con.query(`select * from SandD where Product_id = ${productId};`, (querySandDErr, resultSandD) => {
+    con.query(`select * from StandardsandDescriptions where Product_id = ${productId};`, (querySandDErr, resultSandD) => {
       if (querySandDErr) throw querySandDErr;
       const standardIds = [];
       if (resultSandD.length !== 0) {
@@ -37,8 +42,8 @@ app.get('/:Id/DS', (req, res) => {
           con.query(`select * from Standards where ID = ${id}`, (standardQueryError, standardQueryResult) => {
             if (standardQueryError) throw standardQueryError;
 
-            productInfo.standards.push(standardQueryResult[0].Standards);
-            productInfo.standardsDescription.push(standardQueryResult[0].Description);
+            productInfo.standards.push(standardQueryResult[0].standards);
+            productInfo.standardsDescription.push(standardQueryResult[0].standardsDescription);
             if (i === standardIds.length - 1) {
               res.json(productInfo);
             }
