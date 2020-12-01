@@ -1,0 +1,311 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for tptDescriptionAndStandards/dataGenerator.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">tptDescriptionAndStandards</a> dataGenerator.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">14.1% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>11/78</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/7</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">14.1% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>11/78</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const hipString = 'Food truck taiyaki knausgaard offal truffaut shabby chic Succulents organic meditation keytar butcher plaid cliche mlkshk 8-bit 90s retro Letterpress man bun godard next level before they sold out synth tumeric butcher tacos leggings yuccie tumblr Shaman ramps banjo gochujang try-hard deep v raclette aesthetic cardigan cred Chambray crucifix health goth godard vape ramps seitan everyday carry Lumbersexual XOXO occupy cloud bread hell of helvetica tousled cardigan godard artisan aesthetic migas cliche humblebrag food truck Hexagon vice iPhone meggings pabst kinfolk paleo sartorial 90s leggings typewriter tacos 3 wolf moon shabby chic cronut bicycle rights jean shorts knausgaard Cloud bread biodiesel post-ironic trust fund retro taiyaki pop-up af whatever cardigan austin heirloom sustainable brunch Vape live-edge kitsch hella forage venmo authentic 90s leggings Whatever before they sold out palo santo locavore Vaporware gluten-free gastropub raw denim artisan squid 90s yr chia bicycle rights truffaut kale chips selfies selvage Meditation forage selfies etsy fanny pack edison bulb Irony yuccie chicharrones helvetica pickled hot chicken dreamcatcher vice raw denim fashion axe disrupt coloring book XOXO post-ironic PBR&amp;B offal whatever jianbing flexitarian letterpress portland craft beer fam humblebrag Fanny pack shabby chic food truck la croix yr Mumblecore activated charcoal affogato ethical cornhole pok pok bushwick polaroid kickstarter echo park iceland biodiesel tbh yuccie Salvia sriracha snackwave polaroid live-edge chambray sartorial helvetica kombucha plaid four loko 90s Migas gastropub meggings cornhole waistcoat hoodie raw denim air plant four dollar toast umami hot chicken taxidermy williamsburg Chicharrones kickstarter echo park microdosing gluten-free lyft small batch Unicorn fingerstache banjo readymade ugh PBR&amp;B next level artisan williamsburg live-edge 8-bit scenester post-ironic Farm-to-table pickled yr chambray leggings kombucha 3 wolf moon edison bulb listicle pabst street art cornhole pok pok celiac Pinterest disrupt plaid 90s fanny pack fashion axe subway tile PBR&amp;B jianbing thundercats tumeric disrupt vegan poke tilde street art neutra quinoa keffiyeh echo park yr farm-to-table Pour-over fixie crucifix brunch kombucha raw denim echo park blog Pug offal try-hard franzen XOXO beard mixtape ethical fixie ennui blog Plaid everyday carry vaporware meggings sriracha 90s Listicle subway tile PBR&amp;B chartreuse kitsch franzen tousled Keffiyeh banjo palo santo meh tousled dreamcatcher helvetica migas air plant banh mi vice whatever jianbing hella roof party Pitchfork tumeric adaptogen thundercats authentic jean shorts food truck pour-over irony la croix Tofu art party tilde single-origin coffee Sustainable snackwave pabst farm-to-table banjo wayfarers tumblr hot chicken occupy brunch raclette Vegan yr neutra lumbersexual marfa meh Ramps bushwick microdosing pinterest neutra helvetica food truck pickled VHS vape Hammock cred keytar chartreuse food truck Next level distillery selvage polaroid raw denim stumptown +1 plaid brooklyn asymmetrical Edison bulb jianbing four dollar toast echo park wayfarers semiotics dreamcatcher messenger bag viral green juice Shoreditch prism hell of master cleanse lyft hoodie vexillologist portland viral drinking vinegar gentrify distillery authentic squid Authentic mixtape yuccie knausgaard umami hot chicken subway tile XOXO pop-up crucifix squid YOLO trust fund kickstarter bitters Neutra brunch sustainable blog roof party prism 8-bit snackwave Fam venmo asymmetrical tilde forage franzen locavore vinyl crucifix four loko prism man braid banh mi beard af Affogato photo booth forage gastropub Meditation neutra skateboard glossier cardigan Whatever godard gluten-free waistcoat raclette taxidermy schlitz Deep v four loko meh direct trade you probably havent heard of them farm-to-table chambray venmo normcore gluten-free Vape taxidermy cray salvia enamel pin wolf kombucha shabby chic intelligentsia messenger bag seitan paleo forage Chillwave helvetica pinterest bushwick twee 90s slow-carb cloud bread master cleanse shaman Blog humblebrag letterpress irony hoodie squid kinfolk offal Single-origin coffee meh vape franzen mixtape salvia austin aesthetic you probably havent heard of them Tattooed portland yuccie fanny pack actually gastropub Copper mug typewriter shabby chic farm-to-table Iceland hashtag blog sustainable Locavore gluten-free cardigan occupy humblebrag schlitz post-ironic bushwick lomo poutine narwhal fixie blue bottle Fingerstache semiotics lomo lyft truffaut single-origin coffee distillery Tousled vice echo park chartreuse distillery Post-ironic meh pork belly quinoa hexagon tattooed poke banh mi semiotics fingerstache meditation Live-edge sustainable helvetica try-hard truffaut kitsch Lumbersexual cardigan asymmetrical church-key readymade activated charcoal iceland man braid offal quinoa enamel pin Cold-pressed gastropub pop-up post-ironic swag live-edge cliche hell of before they sold out air plant occupy godard af authentic cred Tousled tote bag godard chicharrones brooklyn flannel disrupt freegan chartreuse Health goth poutine hoodie brooklyn four dollar toast retro Subway tile bicycle rights roof party irony forage Iceland heirloom pinterest hella yr live-edge snackwave lyft Listicle freegan microdosing coloring book Fixie scenester lomo XOXO lo-fi food truck viral everyday carry hella edison bulb direct trade Stumptown four loko everyday carry tousled tbh Literally cold-pressed knausgaard jean shorts helvetica truffaut paleo hammock crucifix Ethical trust fund la croix bushwick etsy cred literally gochujang locavore chartreuse cloud bread pitchfork kitsch tilde Tumblr brooklyn biodiesel ennui cronut disrupt farm-to-table distillery pitchfork salvia microdosing Art party squid copper mug street art roof party Tbh taxidermy pour-over hoodie Yr neutra waistcoat vape raclette portland beard direct trade actually swag succulents fixie Lumbersexual prism stumptown tote bag Mustache copper mug humblebrag cray banjo tousled kickstarter tumeric cold-pressed pop-up fam iceland Hell of austin gochujang food truck PBR&amp;B occupy kale chips hashtag +1 brooklyn Jean shorts put a bird on it you probably havent heard of them whatever unicorn Occupy pinterest cardigan wayfarers coloring book everyday carry subway tile pok pok ramps austin Hell of snackwave locavore cliche crucifix air plant cardigan Deep v fashion axe cornhole irony shoreditch ugh fingerstache taxidermy heirloom neutra Tilde ugh pour-over 3 wolf moon brunch Sartorial literally gochujang yuccie pabst wolf venmo blue bottle XOXO selfies paleo tofu pitchfork raclette Seitan +1 mlkshk health goth tbh selvage vape pork belly food truck paleo skateboard locavore crucifix subway tile Pabst schlitz vaporware leggings fixie YOLO pickled fashion axe trust fund deep v Etsy neutra squid photo booth YOLO Readymade occupy narwhal crucifix freegan copper mug fixie Portland flannel distillery man braid Chia pork belly YOLO thundercats lyft activated charcoal Kitsch fam chambray cornhole neutra waistcoat truffaut everyday carry selvage Taiyaki kale chips blog jianbing enamel pin locavore butcher shabby chic Letterpress vice brooklyn beard man braid plaid shaman chillwave cold-pressed selvage ramps hot chicken before they sold out Tofu selfies succulents chartreuse sartorial beard lyft af craft beer Polaroid pabst wolf deep v scenester prism drinking vinegar sriracha four loko tousled readymade Paleo vexillologist brooklyn freegan tacos art party gastropub lumbersexual photo booth bespoke venmo Tbh tilde mixtape letterpress cray normcore glossier portland enamel pin Squid hot chicken vape adaptogen celiac taxidermy hoodie williamsburg slow-carb craft beer tbh Next level fanny pack mumblecore photo booth sustainable beard Gluten-free man braid taxidermy pok pok poutine craft beer pour-over kombucha echo park chicharrones freegan Chartreuse williamsburg roof party 90s microdosing la croix umami portland typewriter tattooed schlitz post-ironic four loko seitan Messenger bag fanny pack taiyaki williamsburg cardigan air plant poutine helvetica paleo vaporware microdosing lo-fi Kale chips coloring book shaman everyday carry bitters trust fund irony chillwave seitan cardigan Disrupt scenester flexitarian lo-fi mixtape YOLO chambray put a bird on it Williamsburg echo park four loko tousled direct trade Etsy small batch dreamcatcher pok pok narwhal lyft cloud bread everyday carry you probably havent heard of them locavore tbh ramps Pour-over before they sold out crucifix microdosing kickstarter actually hammock quinoa tumblr trust fund activated charcoal messenger bag Food truck +1 tacos shoreditch meditation seitan asymmetrical tumblr green juice fam Ennui tbh single-origin coffee blog live-edge palo santo plaid air plant skateboard hexagon occupy pug Lo-fi woke snackwave fixie umami tumeric 3 wolf moon gochujang shaman brooklyn health goth Freegan jean shorts cold-pressed locavore gochujang kickstarter kale chips trust fund crucifix meditation Butcher vaporware thundercats poutine la croix gentrify Pitchfork ramps paleo quinoa Forage kogi sustainable kickstarter vice flexitarian skateboard Artisan sustainable actually cornhole lumbersexual tousled +1 kogi hella Taiyaki lyft swag YOLO messenger bag green juice drinking vinegar microdosing blue bottle hoodie XOXO retro kombucha umami Church-key YOLO paleo art party kinfolk ethical direct trade tote bag mumblecore knausgaard banjo cronut literally DIY Lyft kinfolk PBR&amp;B DIY lomo subway tile try-hard Affogato portland kale chips street art deep v 3 wolf moon green juice occupy selfies cronut migas everyday carry sartorial lyft kinfolk Kombucha slow-carb meditation williamsburg squid you probably havent heard of them tacos selvage street art disrupt cray Deep v drinking vinegar trust fund iPhone artisan raclette you probably havent heard of them cold-pressed kogi blue bottle Green juice semiotics fanny pack wolf paleo Four loko meditation DIY chartreuse taiyaki Seitan put a bird on it biodiesel four loko kickstarter tousled Truffaut selfies butcher chia fingerstache beard williamsburg Retro edison bulb wolf shoreditch heirloom waistcoat skateboard asymmetrical pabst Flannel street art distillery 8-bit shoreditch sartorial la croix echo park Kogi chia cray lyft selfies lumbersexual ennui leggings selvage hell of kinfolk bicycle rights viral roof party kickstarter Irony pok pok austin poke cold-pressed Lo-fi letterpress bicycle rights chartreuse PBR&amp;B four loko air plant poutine brunch try-hard PBR&amp;B polaroid echo park actually hexagon dreamcatcher Chartreuse actually artisan freegan locavore distillery kinfolk Dreamcatcher coloring book intelligentsia aesthetic tofu readymade try-hard photo booth disrupt gochujang Tofu art party tbh blue bottle vape ramps tacos palo santo Helvetica selvage yr 3 wolf moon snackwave put a bird on it pug adaptogen portland cred umami cray Shabby chic YOLO dreamcatcher messenger bag photo booth gochujang kale chips Fanny pack flannel drinking vinegar kale chips squid Bicycle rights you probably havent heard of them hella cloud bread small batch twee artisan banh mi narwhal man braid intelligentsia drinking vinegar Tofu dreamcatcher direct trade skateboard street art stumptown humblebrag gentrify tattooed Literally shoreditch food truck +1 deep v typewriter cray bicycle rights slow-carb flexitarian iceland Pour-over coloring book heirloom succulents roof party yuccie raclette bicycle rights Meggings selfies mumblecore four dollar toast migas activated charcoal unicorn keffiyeh mlkshk Master cleanse pok pok actually vinyl art party heirloom shabby chic put a bird on it unicorn tilde you probably havent heard of them kogi edison bulb Raw denim church-key freegan pickled godard polaroid small batch mlkshk activated charcoal meditation chillwave retro +1 wayfarers echo park Sriracha craft beer mustache flannel fanny pack lo-fi pork belly kale chips shabby chic tousled pop-up bicycle rights 8-bit helvetica kinfolk sustainable photo booth hexagon kogi williamsburg banjo pitchfork church-key small batch tofu thundercats vice Freegan blue bottle pinterest kale chips tousled Tbh snackwave everyday carry raclette helvetica quinoa jianbing before they sold out lumbersexual glossier schlitz blog hashtag kogi Slow-carb schlitz brooklyn distillery helvetica activated charcoal try-hard cray whatever heirloom everyday carry roof party plaid gluten-free pabst Shabby chic williamsburg raw denim tumeric put a bird on it green juice echo park ethical edison bulb actually art party leggings chillwave Street art kombucha +1 butcher polaroid taxidermy fam dreamcatcher Fam dreamcatcher lyft tattooed wolf pitchfork Tofu poke hot chicken ennui craft beer gentrify taiyaki Banh mi pok pok snackwave paleo pork belly ugh raw denim messenger bag Swag migas succulents copper mug semiotics gentrify chia yr hell of occupy adaptogen Gastropub knausgaard selfies blog 8-bit chillwave normcore enamel pin gluten-free skateboard Ennui street art humblebrag offal swag cliche selfies waistcoat seitan asymmetrical kogi cronut hell of sriracha church-key Fashion axe vexillologist messenger bag listicle cred Live-edge vaporware man bun photo booth vegan Banjo pork belly before they sold out four dollar toast green juice skateboard jean shorts chia viral +1 cliche Literally bespoke fam twee cronut hella skateboard cardigan art party selvage knausgaard gochujang master cleanse irony pickled 3 wolf moon chartreuse pitchfork umami VHS plaid post-ironic church-key irony raclette scenester authentic neutra activated charcoal portland Health goth roof party prism salvia four dollar toast Small batch franzen yuccie blue bottle Helvetica celiac glossier hexagon +1 flexitarian hashtag tbh 8-bit church-key chia Af DIY VHS migas Selvage jean shorts knausgaard readymade etsy schlitz taxidermy actually edison bulb gentrify subway tile Pork belly listicle deep v disrupt poke gluten-free vinyl hot chicken 90s synth Mustache blog everyday carry helvetica master cleanse subway tile PBR&amp;B yr four loko organic af kombucha man bun health goth Bushwick church-key hell of organic pok pok retro you probably havent heard of them bicycle rights taiyaki biodiesel Butcher forage cray sustainable lyft viral selfies kale chips af mixtape wayfarers Adaptogen cornhole asymmetrical woke live-edge sriracha chartreuse swag irony man bun venmo Mumblecore kombucha godard subway tile stumptown chicharrones cardigan tumeric four dollar toast iPhone Truffaut sriracha godard blue bottle Pinterest schlitz street art fixie bicycle rights tousled fam aesthetic Butcher shaman ramps trust fund Slow-carb kombucha scenester 8-bit farm-to-table Microdosing ethical organic jean shorts +1 kombucha scenester ramps pabst fashion axe aesthetic cray coloring book glossier vinyl Schlitz fixie kickstarter mustache irony selfies tbh wayfarers occupy Poutine brooklyn meh health goth cray polaroid aesthetic adaptogen craft beer 3 wolf moon tattooed put a bird on it Venmo man bun beard migas air plant glossier flexitarian man braid Etsy af church-key umami roof party Irony jianbing pickled roof party 3 wolf moon selvage man braid master cleanse snackwave butcher kickstarter flannel vaporware ennui Neutra iceland retro biodiesel tote bag XOXO vinyl normcore 90s art party Pork belly flannel photo booth try-hard sartorial air plant farm-to-table Tumblr synth vinyl austin YOLO Etsy brunch meh put a bird on it synth photo booth asymmetrical gastropub master cleanse locavore cray tote bag Lo-fi franzen farm-to-table cray viral Pitchfork austin readymade PBR&amp;B trust fund edison bulb Ugh seitan prism portland brunch organic VHS hella PBR&amp;B chicharrones farm-to-table echo park locavore selvage Cred polaroid cardigan shoreditch 8-bit polaroid shabby chic normcore flexitarian single-origin coffee pinterest tilde gochujang pop-up etsy Cliche banh mi plaid irony Single-origin coffee gochujang tbh before they sold out yr Umami pug lyft yr tumblr brunch vinyl hell of chicharrones helvetica taiyaki Succulents bitters next level umami ethical Small batch hexagon yuccie irony semiotics PBR&amp;B fixie bespoke bitters cronut seitan Wolf kickstarter man braid biodiesel Typewriter poutine meggings chicharrones fingerstache pitchfork readymade YOLO Twee stumptown ethical bicycle rights gochujang selfies messenger bag Taiyaki palo santo PBR&amp;B sustainable wolf cold-pressed hoodie salvia unicorn distillery deep v craft beer fashion axe tousled gentrify Church-key irony post-ironic food truck Mlkshk keffiyeh you probably havent heard of them cornhole four dollar toast knausgaard tattooed taiyaki skateboard Sustainable +1 neutra tofu next level Activated charcoal PBR&amp;B gluten-free adaptogen portland Af +1 dreamcatcher pork belly drinking vinegar 8-bit asymmetrical hammock cronut slow-carb gluten-free Direct trade asymmetrical next level tilde jianbing celiac tumblr pork belly PBR&amp;B normcore unicorn letterpress prism 8-bit master cleanse umami tbh typewriter hashtag prism wolf pickled church-key single-origin coffee Tote bag flannel poutine gluten-free shabby chic bushwick poke af portland hella Yuccie sriracha deep v pitchfork art party DIY enamel pin biodiesel literally bushwick pinterest Cold-pressed pabst next level ugh hella echo park hell of iPhone gastropub Vexillologist shabby chic locavore kogi Before they sold out deep v four dollar toast kickstarter stumptown portland retro Street art hell of bitters mustache beard man bun green juice disrupt fanny pack occupy Twee iceland gastropub gochujang ramps helvetica put a bird on it cred iPhone banjo Banh mi slow-carb schlitz mustache adaptogen retro pug raw denim artisan chartreuse tumeric post-ironic narwhal meh hot chicken Selfies +1 raclette master cleanse vice dreamcatcher PBR&amp;B salvia before they sold out next level quinoa you probably havent heard of them palo santo godard Squid kitsch hammock ramps live-edge Chillwave photo booth umami cornhole raw denim kale chips tofu woke narwhal DIY asymmetrical hexagon hoodie franzen pour-over salvia austin chillwave tilde Quinoa tilde prism intelligentsia heirloom bespoke Beard bespoke squid VHS salvia taiyaki occupy man bun master cleanse echo park organic flexitarian blue bottle la croix Readymade kinfolk pok pok wolf offal bushwick Truffaut mumblecore bushwick cliche man braid kitsch Cray vegan keytar organic cloud bread squid retro Single-origin coffee literally quinoa fashion axe cred photo booth Tousled live-edge cornhole cold-pressed ugh marfa celiac fingerstache';
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function descriptionParagraphGenerator(hipsterLorum) {</span></span>
+<span class="cstat-no" title="statement not covered" >  const lowHipString = hipsterLorum.toLowerCase().split(' ');</span>
+<span class="cstat-no" title="statement not covered" >  const paragraphSize = Math.floor((Math.random() + 1) * 5).toString() * 1;// in sentences;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  let hipParagraph = '  ';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  for (let i = 0; i &lt; paragraphSize; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >    let sentence = '';</span>
+<span class="cstat-no" title="statement not covered" >    let j = 0;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const sentenceLength = Math.floor((Math.random() + 5)).toString() * 1;</span>
+<span class="cstat-no" title="statement not covered" >    while (j &lt; sentenceLength) {</span>
+<span class="cstat-no" title="statement not covered" >      const randomInt = Math.floor(Math.random() * lowHipString.length);</span>
+<span class="cstat-no" title="statement not covered" >      if (j === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        sentence += ` ${lowHipString[randomInt][0].toUpperCase()}${lowHipString[randomInt].slice(1)} `;</span>
+<span class="cstat-no" title="statement not covered" >      } else if (j === sentenceLength - 1) {</span>
+<span class="cstat-no" title="statement not covered" >        sentence += `${lowHipString[randomInt]}.`;</span>
+<span class="cstat-no" title="statement not covered" >      } else {</span>
+<span class="cstat-no" title="statement not covered" >        sentence += `${lowHipString[randomInt]} `;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >      j += 1;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    hipParagraph += sentence;</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return hipParagraph;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function standardDescriptionGenerator() {</span></span>
+<span class="cstat-no" title="statement not covered" >  return descriptionParagraphGenerator(hipString);</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function descriptionGenerator() {</span></span>
+<span class="cstat-no" title="statement not covered" >  const reviewLength = Math.floor((Math.random() * 4)) + 1;</span>
+<span class="cstat-no" title="statement not covered" >  let reviewString = '';</span>
+<span class="cstat-no" title="statement not covered" >  for (let i = 0; i &lt; reviewLength; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >    reviewString += `${descriptionParagraphGenerator(hipString)}\n` + '\n';</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  return reviewString;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function standardGenerator() {</span></span>
+<span class="cstat-no" title="statement not covered" >  const standardType = ['RL', 'RI', 'W', 'SL', 'L', 'CCRA.R', 'CCRA.W', 'CCRA.SL', 'CCRA.L', 'RH', 'RST', 'WHST'];</span>
+<span class="cstat-no" title="statement not covered" >  const grade = ['K', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];</span>
+<span class="cstat-no" title="statement not covered" >  const section = ['.1', '.2', '.3', '.4', '.5', '.6', '.7', '.8', '.9', '.10'];</span>
+<span class="cstat-no" title="statement not covered" >  const standards = [];</span>
+<span class="cstat-no" title="statement not covered" >  for (let i = 0; i &lt; standardType.length - 1; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >    for (let j = 0; j &lt; grade.length - 1; j += 1) {</span>
+<span class="cstat-no" title="statement not covered" >      for (let z = 0; z &lt; section.length - 1; z += 1) {</span>
+<span class="cstat-no" title="statement not covered" >        standards.push(`${standardType[i]}.${grade[j]}${section[z]}`);</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  return standards;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function pagesGenerator() {</span></span>
+<span class="cstat-no" title="statement not covered" >  const pages = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500];</span>
+<span class="cstat-no" title="statement not covered" >  const randomIndex = Math.floor(Math.random() * pages.length);</span>
+<span class="cstat-no" title="statement not covered" >  return pages[randomIndex];</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function answerKeyGenerator() {</span></span>
+<span class="cstat-no" title="statement not covered" >  const options = [true, false, null];</span>
+<span class="cstat-no" title="statement not covered" >  const randomIndex = Math.floor(Math.random() * options.length);</span>
+<span class="cstat-no" title="statement not covered" >  return options[randomIndex];</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function teachingDurationGenerator() {</span></span>
+<span class="cstat-no" title="statement not covered" >  const durations = ['Lifelong tool', '1 semester', '1 year', '1 quarter', '2 quarters', '3 quarters'];</span>
+<span class="cstat-no" title="statement not covered" >  const randomIndex = Math.floor(Math.random() * durations.length);</span>
+<span class="cstat-no" title="statement not covered" >  return durations[randomIndex];</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+exports.standardGenerator = standardGenerator;
+exports.descriptionGenerator = descriptionGenerator;
+exports.pagesGenerator = pagesGenerator;
+exports.answerKeyGenerator = answerKeyGenerator;
+exports.teachingDurationGenerator = teachingDurationGenerator;
+exports.standardDescriptionGenerator = standardDescriptionGenerator;
+exports.hipString = hipString;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Mon Nov 30 2020 13:51:29 GMT-0800 (Pacific Standard Time)
+            </div>
+        </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
+</html>
+    
