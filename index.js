@@ -18,11 +18,7 @@ app.get('/:Id', (req, res) => {
 app.get('/:Id/description-and-standards', (req, res) => {
   console.log('starting');
   console.log(req.params.Id)
-<<<<<<< HEAD
   const productId = req.params.Id.split(':')[1]; //express route parameters
-=======
-  const productId = req.params.Id.split(':')[1];
->>>>>>> updated-DB
   const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
     if (productQueryErr) throw productQueryErr;
@@ -43,11 +39,7 @@ app.get('/:Id/description-and-standards', (req, res) => {
       const standardIds = [];
       if (resultSandD.length !== 0) {
         resultSandD.forEach((standardId) => standardIds.push(standardId.Standards_id));
-<<<<<<< HEAD
         standardIds.forEach((id, i) => { //look into using a join query, could implement
-=======
-        standardIds.forEach((id, i) => {
->>>>>>> updated-DB
           con.query(`select * from Standards where ID = ${id}`, (standardQueryError, standardQueryResult) => {
             if (standardQueryError) throw standardQueryError;
 

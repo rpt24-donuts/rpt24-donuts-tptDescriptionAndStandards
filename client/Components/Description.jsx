@@ -20,7 +20,7 @@ class ProductInfo extends React.Component {
       productId: productId
     }, function(){
       console.log(this.state.productId)
-      fetch(`http://localhost:3002/${this.state.productId}:Id/DS`,{
+      fetch(`http://localhost:3002/${this.state.productId}:Id/description-and-standards`,{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
