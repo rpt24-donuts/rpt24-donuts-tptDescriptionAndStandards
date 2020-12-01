@@ -1,6 +1,8 @@
 const request = require('supertest');
 const app = require('../index.js');
-
+const dataMaker = require('../dataGenerator.js');
+const durations = ['Lifelong tool', '1 semester', '1 year', '1 quarter', '2 quarters', '3 quarters'];
+const pages = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500];
 describe('Test the root path', () => {
   test('It should response the GET method', (done) => {
     request(app)
@@ -20,11 +22,10 @@ describe('Test database path', () => {
       .get('/1:Id/DS')
       .then((response) => {
       // console.log(JSON.parse(response.res.text))
-        expect(JSON.parse(response.res.text).productDescriptions.includes('Copper')).toBe(true);
-        expect(JSON.parse(response.res.text).pageLength).toBe(250);
-        expect(JSON.parse(response.res.text).teachingDuration).toBe('1 semester');
-
-        expect(JSON.parse(response.res.text).standards[0]).toBe('N/A');
+        expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5])).toBe(true);
+        console.log('here',dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5]))
+        expect(pages.includes(JSON.parse(response.res.text).pageLength)).toBe(true);
+        expect(durations.includes(JSON.parse(response.res.text).teachingDuration)).toBe(true);
         done();
       });
   });
@@ -33,11 +34,10 @@ describe('Test database path', () => {
       .get('/99:Id/DS')
       .then((response) => {
         // console.log(JSON.parse(response.res.text))
-        expect(JSON.parse(response.res.text).productDescriptions.includes('Affogato')).toBe(true);
-        expect(JSON.parse(response.res.text).pageLength).toBe(150);
-        expect(JSON.parse(response.res.text).teachingDuration).toBe('1 quarter');
-        console.log(JSON.parse(response.res.text).standards[0]);
-        expect(JSON.parse(response.res.text).standards[0]).toBe('CCRA.SL.4.4');
+        expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5])).toBe(true);
+        console.log('here',dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5]))
+        expect(pages.includes(JSON.parse(response.res.text).pageLength)).toBe(true);
+        expect(durations.includes(JSON.parse(response.res.text).teachingDuration)).toBe(true);
         done();
       });
   });

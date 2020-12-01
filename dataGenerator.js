@@ -59,7 +59,7 @@ function pagesGenerator() {
   return pages[randomIndex];
 }
 function answerKeyGenerator() {
-  const options = ['included', 'not included', 'N/A'];
+  const options = [true, false, null];
   const randomIndex = Math.floor(Math.random() * options.length);
   return options[randomIndex];
 }
@@ -75,3 +75,4 @@ exports.pagesGenerator = pagesGenerator;
 exports.answerKeyGenerator = answerKeyGenerator;
 exports.teachingDurationGenerator = teachingDurationGenerator;
 exports.standardDescriptionGenerator = standardDescriptionGenerator;
+exports.hipString = hipString;
