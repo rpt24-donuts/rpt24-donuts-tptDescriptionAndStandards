@@ -57,7 +57,7 @@ class ProductInfo extends React.Component {
       <div className = 'productService'>
          <div className = 'additionalInfo'></div>
 <h3 className = 'DescriptionTitle'>Description</h3>
-<div className='standardsDescription'>{this.state.productInfo.productDescriptions}</div>
+<div className='standardsDescription'>{this.state.productInfo.productDescription}</div>
       <div className = 'additionalInfoBox'>
         <div className = 'items1'>
         <div className = 'additionalInfoDesc'>Total Pages</div>

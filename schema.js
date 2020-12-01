@@ -7,6 +7,7 @@ const con = mysql.createConnection({
   database: 'SandD',
 });
 const dataMaker = require('./dataGenerator.js');
+
 const standards = dataMaker.standardGenerator();
 
 con.connect((err) => {
