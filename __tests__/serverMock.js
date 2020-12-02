@@ -19,11 +19,11 @@ describe('Test the root path', () => {
 describe('Test database path', () => {
   test('It should return the correct product information from the database', (done) => {
     request(app)
-      .get('/1:Id/DS')
+      .get('/1:Id/description-and-standards')
       .then((response) => {
-      // console.log(JSON.parse(response.res.text))
-        expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5])).toBe(true);
-        console.log('here',dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5]))
+
+        expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescription.split(' ')[5])).toBe(true);
+
         expect(pages.includes(JSON.parse(response.res.text).pageLength)).toBe(true);
         expect(durations.includes(JSON.parse(response.res.text).teachingDuration)).toBe(true);
         done();
@@ -31,11 +31,11 @@ describe('Test database path', () => {
   });
   test('It should return the correct product information from the database', (done) => {
     request(app)
-      .get('/99:Id/DS')
+      .get('/99:Id/description-and-standards')
       .then((response) => {
-        // console.log(JSON.parse(response.res.text))
-        expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5])).toBe(true);
-        console.log('here',dataMaker.hipString.includes(JSON.parse(response.res.text).productDescriptions.split(' ')[5]))
+
+        expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescription.split(' ')[5])).toBe(true);
+
         expect(pages.includes(JSON.parse(response.res.text).pageLength)).toBe(true);
         expect(durations.includes(JSON.parse(response.res.text).teachingDuration)).toBe(true);
         done();
