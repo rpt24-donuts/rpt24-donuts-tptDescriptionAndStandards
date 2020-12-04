@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">92.31% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>52/65</span>
+                <span class='fraction'>48/52</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">92.31% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>52/65</span>
+                <span class='fraction'>48/52</span>
             </div>
         
             
@@ -109,20 +109,7 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -140,9 +127,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -161,17 +145,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -182,7 +155,8 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -191,8 +165,9 @@
 &nbsp;
 const app = express();
 const mysql = require('mysql');
-// app.set('view engine', 'html');
+&nbsp;
 app.use(express.static(`${__dirname}/client/dist`));
+&nbsp;
 const con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -200,15 +175,11 @@ const con = mysql.createConnection({
   database: 'SandD',
 });
 app.get('/products/:Id', (req, res) =&gt; {
-  console.log('in here')
   res.sendFile(`${__dirname}/client/dist/index.html`);
-  // res.send('done');
 });
-//https://localhost:3001/products/{}/description-and-standards
+&nbsp;
 app.get('/products/:Id/description-and-standards', (req, res) =&gt; {
-  console.log('starting');
-  console.log(req.params.Id)
-  const productId = req.params.Id; //express route parameters
+  const productId = req.params.Id;
   const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) =&gt; {
     if (productQueryErr) <span class="branch-0 cbranch-no" title="branch not covered" >throw p</span>roductQueryErr;
@@ -222,35 +193,25 @@ app.get('/products/:Id/description-and-standards', (req, res) =&gt; {
     productInfo.productDescription = productQueryResult[0].productDescription;
     productInfo.pageLength = productQueryResult[0].pageLength;
     productInfo.teachingDuration = productQueryResult[0].teachingDuration;
-    productInfo.standards = [];
-    productInfo.standardsDescription = [];
-    con.query(`select * from StandardsandDescriptions where Product_id = ${productId};`, (querySandDErr, resultSandD) =&gt; {
-      if (querySandDErr) <span class="branch-0 cbranch-no" title="branch not covered" >throw q</span>uerySandDErr;
-      const standardIds = [];
+    productInfo.standards = {};
+    con.query(`Select s1.standards, s1.StandardsDescription from Standards s1 inner join StandardsandDescriptions SandD on SandD.Standards_id = s1.ID where SandD.Product_id =${productId}`, (querySandDErr, resultSandD) =&gt; {
+      if (querySandDErr) <span class="branch-0 cbranch-no" title="branch not covered" >throw p</span>roductQueryErr;
       if (resultSandD.length !== 0) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >        resultSandD.forEach((standardId) =&gt; standardIds.push(standardId.Standards_id));</span>
-<span class="cstat-no" title="statement not covered" >        standardIds.forEach((id, i) =&gt; { //look into using a join query, could implement</span>
-<span class="cstat-no" title="statement not covered" >          con.query(`select * from Standards where ID = ${id}`, (standardQueryError, standardQueryResult) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            if (standardQueryError) throw standardQueryError;</span>
-<span class="cstat-no" title="statement not covered" >            console.log('PRODUCT INFO', productInfo)</span>
-<span class="cstat-no" title="statement not covered" >            productInfo.standards.push(standardQueryResult[0].standards);</span>
-<span class="cstat-no" title="statement not covered" >            productInfo.standardsDescription.push(standardQueryResult[0].standardsDescription);</span>
-<span class="cstat-no" title="statement not covered" >            if (i === standardIds.length - 1) {</span>
-<span class="cstat-no" title="statement not covered" >              res.json(productInfo);</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >          });</span>
+<span class="cstat-no" title="statement not covered" >        resultSandD.forEach((standard) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          productInfo.standards[standard.standards] = standard.StandardsDescription;</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
       } else {
-        productInfo.standards.push('N/A');
-        productInfo.standardsDescription.push('N/A');
-        res.json(productInfo);
+        productInfo.standards['N/A'] = 'N/A';
       }
+      res.json(productInfo);
     });
   });
 });
+&nbsp;
 app.listen(3002, () =&gt; {
   console.log('listening at http://localhost:3002');
 });
+&nbsp;
 module.exports = app;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -259,7 +220,7 @@ module.exports = app;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Dec 04 2020 10:49:54 GMT-0800 (Pacific Standard Time)
+                at Fri Dec 04 2020 14:01:18 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
