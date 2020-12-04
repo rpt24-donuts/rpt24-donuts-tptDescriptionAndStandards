@@ -1,6 +1,4 @@
 function Standards(props) {
-  console.log('props', props)
-
   if (props.standardInfo !== undefined && !props.standardInfo["N/A"]) {
     var standards = Object.keys(props.standardInfo).map((standard)=>{
       return (
@@ -22,6 +20,4 @@ function Standards(props) {
     standards
   )
 }
-
-
 export default Standards
