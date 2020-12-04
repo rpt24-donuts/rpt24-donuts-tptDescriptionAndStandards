@@ -10,16 +10,17 @@ const con = mysql.createConnection({
   password: 'Password!23',
   database: 'SandD',
 });
-app.get('/:Id', (req, res) => {
+app.get('/products/:Id', (req, res) => {
+  console.log('in here')
   res.sendFile(`${__dirname}/client/dist/index.html`);
   // res.send('done');
 });
-
-app.get('/:Id/description-and-standards', (req, res) => {
+//https://localhost:3001/products/{}/description-and-standards
+app.get('/products/:Id/description-and-standards', (req, res) => {
   console.log('starting');
   console.log(req.params.Id)
-  const productId = req.params.Id.split(':')[1]; //express route parameters
-  const productInfo = {};
+  let productId = req.params.Id; //express route parameters
+  let productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
     if (productQueryErr) throw productQueryErr;
     if (productQueryResult[0].answerKeyIncluded === 1) {
@@ -32,30 +33,21 @@ app.get('/:Id/description-and-standards', (req, res) => {
     productInfo.productDescription = productQueryResult[0].productDescription;
     productInfo.pageLength = productQueryResult[0].pageLength;
     productInfo.teachingDuration = productQueryResult[0].teachingDuration;
-    productInfo.standards = [];
-    productInfo.standardsDescription = [];
-    con.query(`select * from StandardsandDescriptions where Product_id = ${productId};`, (querySandDErr, resultSandD) => {
-      if (querySandDErr) throw querySandDErr;
-      const standardIds = [];
+    productInfo.standards = {};
+    con.query(`Select s1.standards, s1.StandardsDescription from Standards s1 inner join StandardsandDescriptions SandD on SandD.Standards_id = s1.ID where SandD.Product_id =${productId}`, (querySandDErr, resultSandD) => {
+      if (querySandDErr) throw productQueryErr
       if (resultSandD.length !== 0) {
-        resultSandD.forEach((standardId) => standardIds.push(standardId.Standards_id));
-        standardIds.forEach((id, i) => { //look into using a join query, could implement
-          con.query(`select * from Standards where ID = ${id}`, (standardQueryError, standardQueryResult) => {
-            if (standardQueryError) throw standardQueryError;
+      resultSandD.forEach(standard=>{
 
-            productInfo.standards.push(standardQueryResult[0].standards);
-            productInfo.standardsDescription.push(standardQueryResult[0].standardsDescription);
-            if (i === standardIds.length - 1) {
-              res.json(productInfo);
-            }
-          });
-        });
-      } else {
-        productInfo.standards.push('N/A');
-        productInfo.standardsDescription.push('N/A');
-        res.json(productInfo);
-      }
-    });
+        productInfo.standards[standard.standards] = standard.StandardsDescription
+      })
+      console.log('standards', productInfo.standards)
+    } else {
+      productInfo.standards['N/A'] = 'N/A'
+
+    }
+    res.json(productInfo);
+    })
   });
 });
 app.listen(3002, () => {

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.63% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>58/64</span>
+                <span class='fraction'>52/65</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">60% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/15</span>
+                <span class='fraction'>6/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.63% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>58/64</span>
+                <span class='fraction'>52/65</span>
             </div>
         
             
@@ -121,7 +121,9 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -148,7 +150,10 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -157,27 +162,24 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -197,22 +199,23 @@ const con = mysql.createConnection({
   password: 'Password!23',
   database: 'SandD',
 });
-app.get('/:Id', (req, res) =&gt; {
+app.get('/products/:Id', (req, res) =&gt; {
+  console.log('in here')
   res.sendFile(`${__dirname}/client/dist/index.html`);
   // res.send('done');
 });
-&nbsp;
-app.get('/:Id/description-and-standards', (req, res) =&gt; {
+//https://localhost:3001/products/{}/description-and-standards
+app.get('/products/:Id/description-and-standards', (req, res) =&gt; {
   console.log('starting');
   console.log(req.params.Id)
-  const productId = req.params.Id.split(':')[1]; //express route parameters
+  const productId = req.params.Id; //express route parameters
   const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) =&gt; {
     if (productQueryErr) <span class="branch-0 cbranch-no" title="branch not covered" >throw p</span>roductQueryErr;
     if (productQueryResult[0].answerKeyIncluded === 1) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >      productInfo.answerKeyIncluded = 'Yes';</span>
-    } else if (productQueryResult[0].answerKeyIncluded === 0) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >      productInfo.answerKeyIncluded = 'No';</span>
+    } else if (productQueryResult[0].answerKeyIncluded === 0) {
+      productInfo.answerKeyIncluded = 'No';
     } else {
       productInfo.answerKeyIncluded = 'N/A';
     }
@@ -224,24 +227,24 @@ app.get('/:Id/description-and-standards', (req, res) =&gt; {
     con.query(`select * from StandardsandDescriptions where Product_id = ${productId};`, (querySandDErr, resultSandD) =&gt; {
       if (querySandDErr) <span class="branch-0 cbranch-no" title="branch not covered" >throw q</span>uerySandDErr;
       const standardIds = [];
-      if (resultSandD.length !== 0) {
-        resultSandD.forEach((standardId) =&gt; standardIds.push(standardId.Standards_id));
-        standardIds.forEach((id, i) =&gt; { //look into using a join query, could implement
-          con.query(`select * from Standards where ID = ${id}`, (standardQueryError, standardQueryResult) =&gt; {
-            if (standardQueryError) <span class="branch-0 cbranch-no" title="branch not covered" >throw s</span>tandardQueryError;
-&nbsp;
-            productInfo.standards.push(standardQueryResult[0].standards);
-            productInfo.standardsDescription.push(standardQueryResult[0].standardsDescription);
-            if (i === standardIds.length - 1) {
-              res.json(productInfo);
-            }
-          });
-        });
-      }<span class="branch-0 cbranch-no" title="branch not covered" > else {</span>
-<span class="cstat-no" title="statement not covered" >        productInfo.standards.push('N/A');</span>
-<span class="cstat-no" title="statement not covered" >        productInfo.standardsDescription.push('N/A');</span>
-<span class="cstat-no" title="statement not covered" >        res.json(productInfo);</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
+      if (resultSandD.length !== 0) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        resultSandD.forEach((standardId) =&gt; standardIds.push(standardId.Standards_id));</span>
+<span class="cstat-no" title="statement not covered" >        standardIds.forEach((id, i) =&gt; { //look into using a join query, could implement</span>
+<span class="cstat-no" title="statement not covered" >          con.query(`select * from Standards where ID = ${id}`, (standardQueryError, standardQueryResult) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (standardQueryError) throw standardQueryError;</span>
+<span class="cstat-no" title="statement not covered" >            console.log('PRODUCT INFO', productInfo)</span>
+<span class="cstat-no" title="statement not covered" >            productInfo.standards.push(standardQueryResult[0].standards);</span>
+<span class="cstat-no" title="statement not covered" >            productInfo.standardsDescription.push(standardQueryResult[0].standardsDescription);</span>
+<span class="cstat-no" title="statement not covered" >            if (i === standardIds.length - 1) {</span>
+<span class="cstat-no" title="statement not covered" >              res.json(productInfo);</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >          });</span>
+<span class="cstat-no" title="statement not covered" >        });</span>
+      } else {
+        productInfo.standards.push('N/A');
+        productInfo.standardsDescription.push('N/A');
+        res.json(productInfo);
+      }
     });
   });
 });
@@ -256,7 +259,7 @@ module.exports = app;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Dec 01 2020 20:19:38 GMT-0800 (Pacific Standard Time)
+                at Fri Dec 04 2020 10:49:54 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

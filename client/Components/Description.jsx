@@ -15,17 +15,24 @@ class ProductInfo extends React.Component {
 
 
   componentDidMount() {
-   var productId = window.location.pathname.slice(1).split(':')[0]*1
+
+
+   var productId = window.location.pathname.split('/')[2]*1
+   console.log('productID', productId)
     this.setState({
       productId: productId
     }, function(){
       console.log(this.state.productId)
-      fetch(`http://localhost:3002/${this.state.productId}:Id/description-and-standards`,{
+      //https://localhost:3001/products/:${this.state.productId}/description-and-standards
+      fetch(`http://localhost:3002/products/${this.state.productId}/description-and-standards`,{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
          }
-        }).then(res=>{return res.json()}).then(data=>this.setState({
+        }).then(res=>{
+          console.log('here')
+          return res.json()
+        }).then(data=>this.setState({
           productInfo: data
         })).catch(err=>console.log(err))
 
@@ -34,25 +41,25 @@ class ProductInfo extends React.Component {
 
 
   render() {
-    if (this.state.productInfo.standards !== undefined && this.state.productInfo.standards[0] !== 'N/A') {
-    var standards = this.state.productInfo.standards.map((standard,i)=>{
 
+    if (this.state.productInfo.standards !== undefined && !this.state.productInfo.standards["N/A"]) {
+
+    var standards = Object.keys(this.state.productInfo.standards).map((standard)=>{
+      console.log('key', this.state.productInfo.standards[standard])
       return(
         <div >
         <div className = 'standardsContainer'>
       <div className = 'CCSS'>CCSS</div>
       <div  className = 'standards'>{standard}</div>
-
-
       </div>
-       <div className = 'standardsDescription'>{this.state.productInfo.standardsDescription[i]}</div>
+       <div className = 'standardsDescription'>{this.state.productInfo.standards[standard]}</div>
        </div>
       )
     })
   }else {
     var standards =<div className = 'standardsDescription'>N/A</div>
 
-  }
+   }
     return (
       <div className = 'productService'>
          <div className = 'additionalInfo'></div>
