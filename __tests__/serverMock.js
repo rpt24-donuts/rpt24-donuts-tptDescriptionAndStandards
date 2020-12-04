@@ -6,7 +6,7 @@ const pages = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500];
 describe('Test the root path', () => {
   test('It should response the GET method', (done) => {
     request(app)
-      .get('/:Id')
+      .get('/products/1')
       .then((response) => {
         expect(response.statusCode).toBe(200);
         done();
@@ -14,12 +14,11 @@ describe('Test the root path', () => {
   });
 });
 
-// '/:Id/DS'
 
 describe('Test database path', () => {
   test('It should return the correct product information from the database', (done) => {
     request(app)
-      .get('/1:Id/description-and-standards')
+      .get('/products/1/description-and-standards')
       .then((response) => {
 
         expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescription.split(' ')[5])).toBe(true);
@@ -31,7 +30,7 @@ describe('Test database path', () => {
   });
   test('It should return the correct product information from the database', (done) => {
     request(app)
-      .get('/99:Id/description-and-standards')
+      .get('/products/99/description-and-standards')
       .then((response) => {
 
         expect(dataMaker.hipString.includes(JSON.parse(response.res.text).productDescription.split(' ')[5])).toBe(true);

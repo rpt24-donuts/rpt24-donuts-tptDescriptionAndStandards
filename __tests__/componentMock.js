@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {shallow, render, mount, configure,} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import ProductInfo from '../client/Components/Description';
+import ProductInfo from '../client/Components/ProductInfo';
 
 require('jest-fetch-mock').enableMocks();
   configure({ adapter: new Adapter() });
