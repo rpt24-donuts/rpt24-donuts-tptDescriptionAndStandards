@@ -1,6 +1,8 @@
 const express = require('express');
+
 const app = express();
 const mysql = require('mysql');
+
 app.use(express.static(`${__dirname}/client/dist`));
 
 const con = mysql.createConnection({
@@ -14,8 +16,8 @@ app.get('/products/:Id', (req, res) => {
 });
 
 app.get('/products/:Id/description-and-standards', (req, res) => {
-  let productId = req.params.Id;
-  let productInfo = {};
+  const productId = req.params.Id;
+  const productInfo = {};
   con.query(`select * from Product where id = ${productId};`, (productQueryErr, productQueryResult) => {
     if (productQueryErr) throw productQueryErr;
     if (productQueryResult[0].answerKeyIncluded === 1) {
@@ -30,16 +32,16 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
     productInfo.teachingDuration = productQueryResult[0].teachingDuration;
     productInfo.standards = {};
     con.query(`Select s1.standards, s1.StandardsDescription from Standards s1 inner join StandardsandDescriptions SandD on SandD.Standards_id = s1.ID where SandD.Product_id =${productId}`, (querySandDErr, resultSandD) => {
-      if (querySandDErr) throw productQueryErr
+      if (querySandDErr) throw productQueryErr;
       if (resultSandD.length !== 0) {
-        resultSandD.forEach(standard=>{
-          productInfo.standards[standard.standards] = standard.StandardsDescription
-        })
+        resultSandD.forEach((standard) => {
+          productInfo.standards[standard.standards] = standard.StandardsDescription;
+        });
       } else {
-      productInfo.standards['N/A'] = 'N/A'
+        productInfo.standards['N/A'] = 'N/A';
       }
       res.json(productInfo);
-    })
+    });
   });
 });
 

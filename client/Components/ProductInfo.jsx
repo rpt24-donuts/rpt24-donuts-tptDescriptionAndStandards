@@ -28,7 +28,6 @@ class ProductInfo extends React.Component {
         }.bind(this))
     }
   render() {
-    console.log(this.state)
     return (
       <div className = 'productService'>
         <Description descriptionInfo = {this.state.productInfo} />

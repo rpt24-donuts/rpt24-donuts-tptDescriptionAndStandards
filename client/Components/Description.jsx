@@ -1,5 +1,4 @@
 function Description(props) {
-  console.log(props)
   return (
   <div>
     <div className = 'additionalInfo'></div>
