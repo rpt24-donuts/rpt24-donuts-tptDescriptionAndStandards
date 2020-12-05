@@ -2,21 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Standards from './Standards.jsx'
 import Description from './Description.jsx'
-class ProductInfo extends React.Component {
+export default class ProductInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: "",
+      productId: '',
       value: '',
       productInfo: {}
     };
+    // const myScript = document.getElementById('bundle');
+
   }
 
   componentDidMount() {
-   var productId = window.location.pathname.split('/')[2]*1
+    console.log('href', window.location.href.split("/")[4]) //localhost:3000/products/1
     this.setState({
-      productId: productId
+      productId: [window.location.href.split("/")[4]]
     }, function() {
+
       fetch(`http://localhost:3002/products/${this.state.productId}/description-and-standards`, {
         headers : {
           'Content-Type': 'application/json',
@@ -40,4 +43,4 @@ class ProductInfo extends React.Component {
 
 
 
-export default ProductInfo
+// export default ProductInfo
