@@ -1,8 +1,12 @@
 .productService{
+  width: 714.656px;
+  background-color: #fff;
+  box-sizing: border-box;
+  color: #222;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding-bottom: 10px;
+  font: 12px Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 
-  position: absolute;
-  left:16.7%;
-  right:33.3%;
 
 }
 
@@ -56,8 +60,8 @@ padding-bottom:50px;
 border-width:thin;
 }
 .additionalInfoItem {
- position:absolute;
-left: 20%;
+ /* position:absolute;
+left: 20%; */
  padding-left:10px;
  color: #666;
  font-size: 16px;
@@ -108,7 +112,7 @@ left: 20%;
   width:15%;
 
   border-width:thin;
-  border-color:rgb(243, 243, 243);
+  /* border-color:rgb(243, 243, 243); */
   border-radius:5px;
 
 }
