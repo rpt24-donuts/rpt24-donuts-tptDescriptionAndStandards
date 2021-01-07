@@ -1,29 +1,22 @@
 .productService{
-  width: 714.656px;
-  background-color: #fff;
-  box-sizing: border-box;
-  color: #222;
-  border-bottom: 1px solid rgb(221, 221, 221);
-  padding-bottom: 10px;
-  font: 12px Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
-
+  position: absolute;
+  left:16.7%;
+  right:33.3%;
 
 }
 
 
 .DescriptionTitle {
-font-family: arial;
+  font-family: arial;
 }
 .additionalInfo{
-
   margin-bottom: 6px;
   font-size: 16px;
-
-border-bottom:solid;
-border-color: lightgray;
-padding-top:50px;
-padding-bottom:50px;
-border-width:thin;
+  border-bottom:solid;
+  border-color: lightgray;
+  padding-top:50px;
+  padding-bottom:50px;
+  border-width:thin;
 
 }
 h1 {
@@ -45,19 +38,15 @@ h1 {
   flex:1;
   margin-bottom: 6px;
   font-size: 16px;
-
   white-space: nowrap;
-
-
-
 }
 .additionalInfoBox{
   border-top:solid;
   border-bottom:solid;
-border-color: lightgray;
-padding-top:50px;
-padding-bottom:50px;
-border-width:thin;
+  border-color: lightgray;
+  padding-top:50px;
+  padding-bottom:50px;
+  border-width:thin;
 }
 .additionalInfoItem {
  /* position:absolute;
@@ -90,27 +79,19 @@ left: 20%; */
 }
 .CCSS{
   display:flex;
-
   flex:1;
   font-family: arial;
-
   background-color:rgb(243, 243, 243);
-
-
   padding:2.5px;
   font-size: 12px;
   font-weight:550;
   text-align: center;
-
-
-
-
 }
+
 .standardsContainer {
   border:solid;
   display:flex;
   width:15%;
-
   border-width:thin;
   border-color:rgb(243, 243, 243);
   border-radius:5px;
@@ -119,13 +100,10 @@ left: 20%; */
 .standardsContainer:hover{
   border-color:black;
   border-radius:0px;
-
 }
 .standardsDescription {
-font-size: 16px;
-font-family: arial;
-margin-top:10px;
-margin-bottom:20px;
-
-
+  font-size: 16px;
+  font-family: arial;
+  margin-top:10px;
+  margin-bottom:20px;
 }

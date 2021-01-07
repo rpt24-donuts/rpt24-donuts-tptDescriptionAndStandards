@@ -4,7 +4,8 @@ const con = mysql.createConnection({
   user: 'admin',
   password:'Schoo1l22',
   database: 'SandD',
-  port:'3306'
+  port:'3306'o
+
 });
 const dataMaker = require('./dataGenerator.js');
 
@@ -28,7 +29,7 @@ for (let i = 0; i < 100; i += 1) {
   });
 }
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 101; i += 1) {
   const rand = Math.floor(Math.random() * 4);
   const randomStandard = Math.floor(Math.random() * standards.length);
 

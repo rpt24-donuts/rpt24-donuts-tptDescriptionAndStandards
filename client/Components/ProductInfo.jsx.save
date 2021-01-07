@@ -19,7 +19,8 @@ export default class ProductInfo extends React.Component {
     this.setState({
       productId: [window.location.href.split("/")[4]]
     }, function() {
-       fetch(`http://18.222.237.222:3002/products/${this.state.productId}/description-and-standards`, {
+
+      fetch(`/${this.state.productId}/description-and-standards`, {
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

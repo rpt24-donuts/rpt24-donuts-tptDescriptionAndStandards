@@ -6,11 +6,14 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.static(`${__dirname}/client/dist`));
 
+
 const con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Password!23',
+  host: 'database-1.c3ex2r9iddbm.us-east-2.rds.amazonaws.com',
+  user: 'admin',
+  password:'Schoo1l22',
   database: 'SandD',
+  port:'3306'
+
 });
 app.get('/products/:Id', (req, res) => {
   res.sendFile(`${__dirname}/client/dist/index.html`);

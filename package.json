@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "start": "nodemon index.js",
     "build": "webpack --config webpack.config.js --watch",
-    "seed": "mysql -u root -p  < schema.sql && node schema.js"
+    "seed": "sudo mysql -u root -p < schema.sql && node schema.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "docker": "^1.0.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
