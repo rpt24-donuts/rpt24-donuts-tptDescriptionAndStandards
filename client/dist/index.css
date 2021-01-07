@@ -93,7 +93,7 @@ left: 20%; */
   display:flex;
   width:15%;
   border-width:thin;
-  border-color:rgb(243, 243, 243);
+  /* border-color:rgb(243, 243, 243); */
   border-radius:5px;
 
 }
