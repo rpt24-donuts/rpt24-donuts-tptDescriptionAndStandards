@@ -1,10 +1,11 @@
 const mysql = require('mysql');
+const = mysqlLogin = require('./mysqlKey.js')
 const con = mysql.createConnection({
   host: 'database-1.c3ex2r9iddbm.us-east-2.rds.amazonaws.com',
   user: 'admin',
-  password:'Schoo1l22',
+  password:mysqlLogin.password,
   database: 'SandD',
-  port:'3306'o
+  port:'3306'
 
 });
 const dataMaker = require('./dataGenerator.js');

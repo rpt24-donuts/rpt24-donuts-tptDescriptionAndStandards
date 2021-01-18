@@ -1,8 +1,9 @@
 const mysql = require('mysql');
+const mysqlLogin = require('./mysqlKey.js')
 const con = mysql.createConnection({
   host: '172.31.10.193',
   user: 'admin',
-  password:'Schoo!l22',
+  password:mysqlLogin.password,
   database: 'SandD',
   port:'3306'
 });
