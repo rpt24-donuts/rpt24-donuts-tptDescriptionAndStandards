@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 const con = mysql.createConnection({
-  host: 'database-1.c3ex2r9iddbm.us-east-2.rds.amazonaws.com',
+  host: '172.31.10.193',
   user: 'admin',
-  password:'Schoo1l22',
+  password:'Schoo!l22',
   database: 'SandD',
   port:'3306'
 });
@@ -28,7 +28,7 @@ for (let i = 0; i < 100; i += 1) {
   });
 }
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 101; i += 1) {
   const rand = Math.floor(Math.random() * 4);
   const randomStandard = Math.floor(Math.random() * standards.length);
 

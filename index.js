@@ -1,19 +1,27 @@
 const express = require('express');
-
+var expressStaticGzip = require('express-static-gzip');
 const app = express();
 const mysql = require('mysql');
+const mysqlLogin = require('./mysqlKey.js')
 const cors = require('cors');
 app.use(cors());
-app.use(express.static(`${__dirname}/client/dist`));
+var compression = require('compression')
+app.use(compression())
 
-
+app.get('*.js', (req, res, next) => {
+  req.url = req.url + '.gz';
+  console.log('sending compressed file')
+  res.set('Content-Encoding', 'gzip');
+  res.set('Content-Type', 'text/javascript');
+next();
+});
+app.use(express.static(`${__dirname}/client/dist`))
 const con = mysql.createConnection({
-  host: 'database-1.c3ex2r9iddbm.us-east-2.rds.amazonaws.com',
+  host: '172.31.10.193',
   user: 'admin',
-  password:'Schoo1l22',
+  password: mysqlLogin.password,
   database: 'SandD',
   port:'3306'
-
 });
 app.get('/products/:Id', (req, res) => {
   res.sendFile(`${__dirname}/client/dist/index.html`);

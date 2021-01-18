@@ -1,7 +1,6 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 var S3Plugin = require('webpack-s3-plugin')
-var aws = require('./AWSkey.js');
 module.exports = {
  mode: 'production',
   entry: `${__dirname}/client/src/index.jsx`,
@@ -25,7 +24,7 @@ module.exports = {
     path: `${__dirname}/client/dist`,
   },
 plugins: [
-/* new CompressionPlugin({
+ new CompressionPlugin({
  filename: `[path].gz[query]`,
  algorithm: 'gzip',
  test: /\.js$|\.css$|\.html$/,
@@ -37,17 +36,24 @@ plugins: [
  test: /\.js$|\.css$|\.html$/,
  threshold: 10240,
  minRatio: 0.8
- }),*/
-
-new S3Plugin({
-      include:'bundle.js',
+ })
+],
+ plugins: [
+    new S3Plugin({
+      // Exclude uploading of html
+      exclude: /.*\.html$/,
+      // s3Options are required
       s3Options: {
-        accessKeyId: aws.accessKey,
-        secretAccessKey: aws.secretKey
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.FEC.pem,
+        region: 'us-east-2'
       },
       s3UploadOptions: {
         Bucket: 'myproxy'
+      },
+      cdnizerOptions: {
+        defaultCDNBase: 'http://asdf.ca'
       }
     })
-]
+  ]
 };

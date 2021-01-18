@@ -16,8 +16,7 @@ function Standards(props) {
     <div className = 'standardsDescription'> N/A </div>
     )
   }
-  return (
-   standards
+  return 
   )
 }
 export default Standards

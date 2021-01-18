@@ -15,11 +15,11 @@ export default class ProductInfo extends React.Component {
   }
 
   componentDidMount() {
-    console.log('href', window.location.href.split("/")[4]) //localhost:3000/products/1
+ 
     this.setState({
       productId: [window.location.href.split("/")[4]]
     }, function() {
-       fetch(`http://18.222.237.222:3002/products/${this.state.productId}/description-and-standards`, {
+       fetch(`http://3.15.222.179:3002/products/${this.state.productId}/description-and-standards`, {
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

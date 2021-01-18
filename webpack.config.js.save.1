@@ -25,21 +25,13 @@ module.exports = {
     path: `${__dirname}/client/dist`,
   },
 plugins: [
-/* new CompressionPlugin({
- filename: `[path].gz[query]`,
- algorithm: 'gzip',
- test: /\.js$|\.css$|\.html$/,
- threshold: 10240,
- minRatio: 0.8
- }),
- new BrotliPlugin({
- asset: `[path].br[query]`,
- test: /\.js$|\.css$|\.html$/,
- threshold: 10240,
- minRatio: 0.8
- }),*/
-
-new S3Plugin({
+ new CompressionPlugin({
+      filename: `[path][base].gz`,
+      algorithm: 'gzip',
+    }),
+],
+ plugins: [
+    new S3Plugin({
       include:'bundle.js',
       s3Options: {
         accessKeyId: aws.accessKey,
@@ -49,5 +41,5 @@ new S3Plugin({
         Bucket: 'myproxy'
       }
     })
-]
+  ]
 };

@@ -28,6 +28,8 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^7.1.2",
     "cors": "^2.8.5",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
@@ -47,13 +49,16 @@
   },
   "dependencies": {
     "circleci": "^0.3.3",
+    "compression": "^1.7.4",
     "docker": "^1.0.0",
     "express": "^4.17.1",
+    "express-static-gzip": "^2.1.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "webpack-s3-plugin": "^1.2.0-rc.0"
   },
   "jest": {
     "modulePaths": [
