@@ -1,27 +1,30 @@
 const express = require('express');
-var expressStaticGzip = require('express-static-gzip');
+const expressStaticGzip = require('express-static-gzip');
+
 const app = express();
 const mysql = require('mysql');
-const mysqlLogin = require('./mysqlKey.js')
+const mysqlLogin = require('./mysqlKey.js');
 const cors = require('cors');
-app.use(cors());
-var compression = require('compression')
-app.use(compression())
 
-app.get('*.js', (req, res, next) => {
-  req.url = req.url + '.gz';
-  console.log('sending compressed file')
-  res.set('Content-Encoding', 'gzip');
-  res.set('Content-Type', 'text/javascript');
-next();
-});
-app.use(express.static(`${__dirname}/client/dist`))
+app.use(cors());
+const compression = require('compression');
+
+app.use(compression());
+
+// app.get('*.js', (req, res, next) => {
+//   req.url += '.gz';
+//   console.log('sending compressed file');
+//   res.set('Content-Encoding', 'gzip');
+//   res.set('Content-Type', 'text/javascript');
+//   next();
+// });
+app.use(express.static(`${__dirname}/client/dist`));
 const con = mysql.createConnection({
-  host: '172.31.10.193',
-  user: 'admin',
+  // host: '172.31.10.193',
+  user: 'root',
   password: mysqlLogin.password,
   database: 'SandD',
-  port:'3306'
+  // port: '3306',
 });
 app.get('/products/:Id', (req, res) => {
   res.sendFile(`${__dirname}/client/dist/index.html`);
@@ -46,6 +49,7 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
     con.query(`Select s1.standards, s1.StandardsDescription from Standards s1 inner join StandardsandDescriptions SandD on SandD.Standards_id = s1.ID where SandD.Product_id =${productId}`, (querySandDErr, resultSandD) => {
       if (querySandDErr) throw productQueryErr;
       if (resultSandD.length !== 0) {
+        console.log('standard');
         resultSandD.forEach((standard) => {
           productInfo.standards[standard.standards] = standard.StandardsDescription;
         });
@@ -56,6 +60,8 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
     });
   });
 });
+
+// TODO: PUT, POST and DELETE routes
 
 app.listen(3002, () => {
   console.log('listening at http://localhost:3002');
