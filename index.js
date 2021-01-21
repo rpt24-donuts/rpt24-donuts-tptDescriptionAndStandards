@@ -3,11 +3,14 @@ const expressStaticGzip = require('express-static-gzip');
 
 const app = express();
 const mysql = require('mysql');
-const mysqlLogin = require('./mysqlKey.js');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 const compression = require('compression');
+const mysqlLogin = require('./mysqlKey.js');
 
 app.use(compression());
 
@@ -49,7 +52,6 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
     con.query(`Select s1.standards, s1.StandardsDescription from Standards s1 inner join StandardsandDescriptions SandD on SandD.Standards_id = s1.ID where SandD.Product_id =${productId}`, (querySandDErr, resultSandD) => {
       if (querySandDErr) throw productQueryErr;
       if (resultSandD.length !== 0) {
-        console.log('standard');
         resultSandD.forEach((standard) => {
           productInfo.standards[standard.standards] = standard.StandardsDescription;
         });
@@ -61,7 +63,36 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
   });
 });
 
-// TODO: PUT, POST and DELETE routes
+app.delete('/products/:Id', (req, res) => {
+  const productId = req.params.Id;
+  con.query(`DELETE FROM StandardsandDescriptions WHERE Product_id = ${productId}`, (SandDDeleteErr) => {
+    if (SandDDeleteErr) throw SandDDeleteErr;
+    con.query(`DELETE FROM Product WHERE ID = ${productId}`, (prodDeleteErr, prodDeleteRes) => {
+      if (prodDeleteErr) throw prodDeleteErr;
+      res.send(prodDeleteRes);
+    });
+  });
+});
+
+app.post('/products/add', (req, res) => {
+  const {
+    productDescription, pageLength, answerKeyIncluded, teachingDuration,
+  } = req.body;
+  const query = `INSERT INTO Product (productDescription, pageLength, answerKeyIncluded, teachingDuration) VALUES (${productDescription}, ${pageLength}, ${answerKeyIncluded}, ${teachingDuration})`;
+  con.query(query, (prodPostErr) => {
+    if (prodPostErr) throw prodPostErr;
+    res.json(req.body);
+  });
+});
+
+// TODO: need a way to look up product by name or other identifier than description
+app.put('/products/updateProductDescription', (req, res) => {
+  const { productDescription, id } = req.body;
+  con.query(`UPDATE Product SET productDescription = ${productDescription} WHERE ID = ${id}`, (updateErr, updateResponse) => {
+    if (updateErr) throw updateErr;
+    res.send(updateResponse);
+  });
+});
 
 app.listen(3002, () => {
   console.log('listening at http://localhost:3002');
