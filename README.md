@@ -57,8 +57,7 @@ Returns json data about a single
 
 * **Success Response:**
 
-  * **Code:** 200 <br />
-    **Content:** `{
+  * **Content:** `{
     "answerKeyIncluded": "Yes",
     "productDescription": "Bun ethical sriracha iceland denim. Umami knausgaard probably unicorn yolo. Meh v 3 adaptogen hell.",
     "pageLength": 100,
@@ -66,6 +65,9 @@ Returns json data about a single
     "standards": {
         "RH.1.2": "   Coffee vice letterpress mumblecore hot. Snackwave master four selfies mixtape. Tilde cold-pressed seitan dreamcatcher belly. Shabby fingerstache before trust +1. Loko williamsburg tousled fanny chips. 8-bit mug mi snackwave plaid."
     }`
+* **Error Response:**
+
+  * **Code:** 404: Product not found <br />
 
 
 **Add Product**
@@ -93,6 +95,10 @@ Adds a new product to the database
 
   * **Code:** 200 <br />
 
+* **Error Response:**
+
+  * **Code:** 404: Failed to add product <br />
+
 
 **Update Product Description**
 ----
@@ -117,6 +123,10 @@ Updates the description of a single product
 
   * **Code:** 200 <br />
 
+* **Error Response:**
+
+  * **Code:** 404: Failed to update product <br />
+
 
 **Remove Product**
 ----
@@ -139,3 +149,7 @@ Removes a single product from the database
 * **Success Response:**
 
   * **Code:** 200 <br />
+
+* **Error Response:**
+
+  * **Code:** 404: Product not found <br />
