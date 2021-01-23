@@ -1,11 +1,12 @@
 const mysql = require('mysql');
-const mysqlLogin = require('./mysqlKey.js')
+const mysqlLogin = require('./mysqlKey.js');
+
 const con = mysql.createConnection({
-  host: '172.31.10.193',
-  user: 'admin',
-  password:mysqlLogin.password,
+  // host: '172.31.10.193',
+  user: 'root',
+  password: mysqlLogin.password,
   database: 'SandD',
-  port:'3306'
+  // port: '3306',
 });
 const dataMaker = require('./dataGenerator.js');
 
@@ -29,7 +30,7 @@ for (let i = 0; i < 100; i += 1) {
   });
 }
 
-for (let i = 0; i < 101; i += 1) {
+for (let i = 0; i < 100; i += 1) {
   const rand = Math.floor(Math.random() * 4);
   const randomStandard = Math.floor(Math.random() * standards.length);
 
@@ -40,3 +41,7 @@ for (let i = 0; i < 101; i += 1) {
     });
   }
 }
+
+// products 100
+// standards 1187
+// ensure sand does not exceed with i and j
