@@ -84,4 +84,3 @@ exports.pagesGenerator = pagesGenerator;
 exports.answerKeyGenerator = answerKeyGenerator;
 exports.teachingDurationGenerator = teachingDurationGenerator;
 exports.standardDescriptionGenerator = standardDescriptionGenerator;
-exports.hipString = hipString;
