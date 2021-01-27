@@ -2,20 +2,20 @@ const fs = require('fs');
 const faker = require('faker');
 const generator = require('./dataGenerator.js');
 
-const writeUsers = fs.createWriteStream('products1.csv');
-writeUsers.write('productDescription,pageLength,answerKeyIncluded,teachingDuration\n', 'utf8');
+const writeUsers = fs.createWriteStream('standards.csv');
+writeUsers.write('standard,description\n', 'utf8');
+
+const standards = generator.standardGenerator();
 
 function writeProducts(writer, encoding, callback) {
-  let i = 10000000;
+  let i = standards.length;
   function write() {
     let ok = true;
     do {
       i -= 1;
-      const productDescription = faker.lorem.paragraph();
-      const pageLength = generator.pagesGenerator();
-      const answerKeyIncluded = generator.answerKeyGenerator();
-      const teachingDuration = generator.teachingDurationGenerator();
-      const data = `${productDescription},${pageLength},${answerKeyIncluded},${teachingDuration}\n`;
+      const standard = standards[i];
+      const description = faker.commerce.productDescription();
+      const data = `${standard},${description}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

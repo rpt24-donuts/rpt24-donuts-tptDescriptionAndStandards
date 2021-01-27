@@ -1,5 +1,4 @@
 const fs = require('fs');
-const csvWriter = require('csv-write-stream');
 const generator = require('./dataGenerator.js');
 
 const standards = generator.standardGenerator();
