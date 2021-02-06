@@ -11,11 +11,12 @@ function writeProducts(writer, encoding, callback) {
     let ok = true;
     do {
       i -= 1;
+      const id = i;
       const productDescription = faker.lorem.paragraph();
       const pageLength = generator.pagesGenerator();
       const answerKeyIncluded = generator.answerKeyGenerator();
       const teachingDuration = generator.teachingDurationGenerator();
-      const data = `${productDescription},${pageLength},${answerKeyIncluded},${teachingDuration}\n`;
+      const data = `${id},${productDescription},${pageLength},${answerKeyIncluded},${teachingDuration}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
