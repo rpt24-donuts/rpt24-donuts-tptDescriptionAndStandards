@@ -34,10 +34,8 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
     } else if (productQueryResult.rows.length) {
       if (productQueryResult.rows[0].answer_key_included === true) {
         productInfo.answerKeyIncluded = 'Yes';
-      } else if (productQueryResult.rows[0].answerKeyIncluded === false) {
-        productInfo.answerKeyIncluded = 'No';
       } else {
-        productInfo.answerKeyIncluded = 'N/A';
+        productInfo.answerKeyIncluded = 'No';
       }
       productInfo.productDescription = productQueryResult.rows[0].description;
       productInfo.pageLength = productQueryResult.rows[0].page_length;
