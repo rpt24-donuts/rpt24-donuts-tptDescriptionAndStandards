@@ -68,7 +68,7 @@ function pagesGenerator() {
   return pages[randomIndex];
 }
 function answerKeyGenerator() {
-  const options = [true, false, null];
+  const options = [true, false];
   const randomIndex = Math.floor(Math.random() * options.length);
   return options[randomIndex];
 }
