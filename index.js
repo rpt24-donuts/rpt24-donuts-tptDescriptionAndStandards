@@ -61,6 +61,43 @@ app.get('/products/:Id/description-and-standards', (req, res) => {
   });
 });
 
+app.get('/products/:searchTerm/description', (req, res) => {
+  const { searchTerm } = req.params;
+  const productInfo = {};
+  pool.query(`SELECT * FROM products WHERE document_vectors @@ to_tsquery('${searchTerm}') LIMIT 1`, (err, productQueryResult) => {
+    if (err) {
+      res.send(err);
+    } else if (productQueryResult.rows.length) {
+      if (productQueryResult.rows[0].answer_key_included === true) {
+        productInfo.answerKeyIncluded = 'Yes';
+      } else {
+        productInfo.answerKeyIncluded = 'No';
+      }
+      productInfo.productDescription = productQueryResult.rows[0].description;
+      productInfo.pageLength = productQueryResult.rows[0].page_length;
+      productInfo.teachingDuration = productQueryResult.rows[0].teaching_duration;
+      productInfo.standards = {};
+      const productId = productQueryResult.rows[0].id;
+      pool.query(`SELECT s1.standard, s1.description FROM standards s1 JOIN standards_to_products stp on stp.standards_id = s1.id WHERE stp.product_id =${productId}`, (err1, resultStp) => {
+        if (err1) {
+          res.send(err1);
+        } else {
+          if (resultStp.rows.length) {
+            resultStp.rows.forEach((standard) => {
+              productInfo.standards[standard.standard] = standard.description;
+            });
+          } else {
+            productInfo.standards['N/A'] = 'N/A';
+          }
+          res.json(productInfo);
+        }
+      });
+    } else {
+      res.sendStatus(404);
+    }
+  });
+});
+
 app.delete('/products/:Id', (req, res) => {
   const productId = req.params.Id;
   pool.query(`DELETE FROM standards_to_products WHERE product_id = ${productId}`, (err, status) => {

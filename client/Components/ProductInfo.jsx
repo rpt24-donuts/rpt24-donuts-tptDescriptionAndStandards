@@ -8,20 +8,31 @@ export default class ProductInfo extends React.Component {
     super(props);
     this.state = {
       productId: '',
+      searchTerm: '',
       value: '',
       productInfo: {},
     };
-    // const myScript = document.getElementById('bundle');
   }
 
   componentDidMount() {
-    this.setState({
-      productId: [window.location.href.split('/')[4]],
-    }, () => {
-      fetch(`http://localhost:3002/products/${this.state.productId}/description-and-standards`).then((res) => res.json()).then((data) => this.setState({
-        productInfo: data,
-      })).catch((err) => console.log(err));
-    });
+    const param = [window.location.href.split('/')[4]];
+    if (parseInt(param)) {
+      this.setState({
+        productId: param,
+      }, () => {
+        fetch(`http://localhost:3002/products/${this.state.productId}/description-and-standards`).then((res) => res.json()).then((data) => this.setState({
+          productInfo: data,
+        })).catch((err) => console.log(err));
+      });
+    } else {
+      this.setState({
+        searchTerm: param,
+      }, () => {
+        fetch(`http://localhost:3002/products/${this.state.searchTerm}/description`).then((res) => res.json()).then((data) => this.setState({
+          productInfo: data,
+        })).catch((err) => console.log(err));
+      });
+    }
   }
 
   render() {
