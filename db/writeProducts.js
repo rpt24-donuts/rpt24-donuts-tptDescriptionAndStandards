@@ -3,7 +3,7 @@ const faker = require('faker');
 const generator = require('./dataGenerator.js');
 
 const writeUsers = fs.createWriteStream('products1.csv');
-writeUsers.write('productDescription,pageLength,answerKeyIncluded,teachingDuration\n', 'utf8');
+writeUsers.write('id,productDescription,pageLength,answerKeyIncluded,teachingDuration\n', 'utf8');
 
 function writeProducts(writer, encoding, callback) {
   let i = 10000000;
