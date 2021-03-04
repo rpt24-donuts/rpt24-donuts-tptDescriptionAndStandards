@@ -3,7 +3,7 @@ const faker = require('faker');
 const generator = require('./dataGenerator.js');
 
 const writeUsers = fs.createWriteStream('standards.csv');
-writeUsers.write('standard,description\n', 'utf8');
+writeUsers.write('id,standard,description\n', 'utf8');
 
 const standards = generator.standardGenerator();
 
@@ -13,9 +13,10 @@ function writeProducts(writer, encoding, callback) {
     let ok = true;
     do {
       i -= 1;
+      const id = i;
       const standard = standards[i];
       const description = faker.commerce.productDescription();
-      const data = `${standard},${description}\n`;
+      const data = `${id},${standard},${description}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

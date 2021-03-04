@@ -26,16 +26,16 @@ CREATE TABLE  standards_to_products(
 
 
 COPY products(description, page_length, answer_key_included, teaching_duration)
-FROM '/Users/kendallbutt/sdc/tptDescriptionAndStandards/products1.csv'
+FROM '/home/ec2-user/tptDescriptionAndStandards/db/products1.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY standards(standard,description)
-FROM '/Users/kendallbutt/sdc/tptDescriptionAndStandards/standards.csv'
+FROM '/home/ec2-user/tptDescriptionAndStandards/db/standards.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY standards_to_products(product_id, standards_id)
-FROM '/Users/kendallbutt/sdc/tptDescriptionAndStandards/db/joins.csv'
+FROM '/home/ec2-user/tptDescriptionAndStandards/db/joins.csv'
 DELIMITER ','
 CSV HEADER;
