@@ -15,7 +15,7 @@ function writeProducts(writer, encoding, callback) {
       i -= 1;
       const id = i;
       const standard = standards[i];
-      const description = faker.commerce.productDescription();
+      const description = faker.lorem.sentence();
       const data = `${id},${standard},${description}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
